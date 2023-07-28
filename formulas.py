@@ -60,3 +60,43 @@ def get_photon_energy(wavelength):
     returns the energy of a photon with wavelength m
     '''
     return (6.626e-34 * 3e8)/(wavelength)
+
+
+def speed_of_light(n,c= 299792458):
+    '''
+    returns the speed of light in a material with refractive index n
+    '''
+    return c/n
+
+
+def t(d, v):
+    '''
+     Get time for an object to travel distance d with velocity v
+    '''
+    return d/v
+
+def convert_nano(unit):
+    '''
+    convert unit to nano units
+    '''
+    return  unit * 1e9, "nano"
+
+def convert_micro(unit):
+    '''
+    convert unit to micro units
+    '''
+    return unit * 1e6, "micro"
+
+def convert_milli(unit):
+    '''
+    convert unit to milli units
+    '''
+    return unit * 1e3, "milli"
+
+def convert_pico(unit):
+    '''
+    convert unit to pico units
+    '''
+    return unit * 1e12, "pico"
+
+
