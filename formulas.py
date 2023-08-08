@@ -2,7 +2,7 @@
 from uncertainties import ufloat
 from uncertainties import unumpy as unp
 import numpy as np
-
+import math
 def resistivity(R : ufloat ,L :ufloat ,A :ufloat) -> ufloat:
     return R*A/L
 
@@ -100,3 +100,17 @@ def convert_pico(unit):
     return unit * 1e12, "pico"
 
 
+def inductance(w, C): 
+    '''
+    Get inductance for a given angular frequency and capacitance
+    '''
+    return 1/((w**2)*C)
+
+def get_inductance(t, C):
+    '''
+    Get inductance for a given period
+    '''
+    f = 1/t
+    w = 2*math.pi*f
+    L = inductance(w, C)
+    return f"Period :{t:.9f}\nFrequency: {f:.9f}\nAngular Frequency: {w:.9f}, \nInductance: {L:.9f}"
