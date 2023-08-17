@@ -2,8 +2,6 @@ from uncertainties import ufloat
 
 
 def least_significant_digit_power(num_string : str):
-    print(num_string)
-
     if 'e' in num_string:
         # There's an exponent. Figure out what it is and negate it.
 
@@ -12,7 +10,7 @@ def least_significant_digit_power(num_string : str):
         pow = int(pow)
         if pow < 0:
 
-            num_dec = abs(int(pow))+ len(dec.split('.')[1])
+            num_dec = abs(int(pow))+ (len((dec.split('.')[1])) if len(dec.split('.')) > 1 else 0)
             return -1* num_dec
 
         else:
@@ -47,7 +45,6 @@ def get_apl_ufloat(n):
 
     str_n = str(n)
     #print(str_n)
-
     pow = least_significant_digit_power(str_n)
     #print(pow)
 
